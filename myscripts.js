@@ -74,6 +74,12 @@ function checkWinner(choiceP, choiceC) {
 
 // function that displays the winner
 
-  function logWins() {
-     console.log(winners);
-  }
+function logWins() {
+  let playerWins = winners.filter((item) => item == "Player").length;
+  let computerWins = winners.filter((item) => item == "Computer").length;
+  let ties = winners.filter((item) => item == "Tie").length;
+  console.log("Results:");
+  console.log("Player Wins:", playerWins);
+  console.log("Computer Wins:", computerWins);
+  console.log("Ties:", ties);
+}
