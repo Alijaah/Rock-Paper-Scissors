@@ -22,3 +22,10 @@ function playRound (playerSelection,ComputerSelection) {
   const playerSelection = getPlayerChoice
   const computerSelection = getComputerChoice
 }
+
+// Write a function that plays the game
+
+function game() {
+  playRound();
+}
+game()
