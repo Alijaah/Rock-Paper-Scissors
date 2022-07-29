@@ -5,7 +5,7 @@ const choices = ['rock','paper','scissors'];
 // Computer randomly selects from array and returns a value
 
 function getComputerChoice () {
-  return [Math.floor(Math.random() * choices.length)];
+  return choices[Math.floor(Math.random() * choices.length)];
 } 
 
 // Player inputs choice
