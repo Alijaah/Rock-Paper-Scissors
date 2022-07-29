@@ -1,26 +1,25 @@
 // Variable Declarations
 
-let choices = ('rock','paper','scissors');
+const choices = ['rock','paper','scissors'];
 
 // Computer randomly selects from array and returns a value
 
 function getComputerChoice () {
-  return Math.floor(Math.random() * choices.length)
+  return [Math.floor(Math.random() * choices.length)];
 } 
-console.log(getComputerChoice)
 
 // Player inputs choice
 
-function getplayerChoice() {
-  let input = prompt("Type Rock, Paper, or Scissors")
-  input = input.toLowerCase
+function getPlayerChoice() {
+  let input = prompt("Type Rock, Paper, or Scissors");
+  input = input.toLowerCase();
 }
 
 // Write a function that plays a single round of Rock Paper Scissors
 
 function playRound () {
-  const playerSelection = getPlayerChoice
-  const computerSelection = getComputerChoice
+  const playerSelection = getPlayerChoice();
+  const computerSelection = getComputerChoice();
 }
 
 // Write a function that plays the game
