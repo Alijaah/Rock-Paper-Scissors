@@ -43,6 +43,7 @@ function playRound () {
   const winner = checkWinner(playerSelection, computerSelection);
   console.log (winner);
   console.log(computerSelection);
+  winners.push(winner);
 }
 
 // Write a function that plays the game and plays 5 rounds
@@ -51,6 +52,7 @@ function game() {
   for (let i = 0; i <= 5; i ++) {
     return playRound;
   }
+   logWinner
 }
 game()  
 
@@ -73,5 +75,5 @@ function checkWinner(choiceP, choiceC) {
 // function that displays the winner
 
   function logWinner() {
-     
+     console.log(winners);
   }
