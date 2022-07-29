@@ -1,7 +1,6 @@
-// Global Variable Declarations
+// Variable Declarations
 
 const choices = ['rock','paper','scissors'];
-const winners = [];
 
 // Computer randomly selects from array and returns a value
 
@@ -43,18 +42,16 @@ function playRound () {
   const winner = checkWinner(playerSelection, computerSelection);
   console.log (winner);
   console.log(computerSelection);
-  winners.push(winner);
 }
 
-// Write a function that plays the game and plays 5 rounds
+// Write a function that plays the game
 
 function game() {
   for (let i = 0; i <= 5; i ++) {
-    return playRound;
+    playRound(i);
   }
-  logWins();
 }
-game();
+game()  
 
 // Function that determines the winner
 
@@ -71,15 +68,3 @@ function checkWinner(choiceP, choiceC) {
     return 'Computer';
   }
   }
-
-// function that displays the winner
-
-function logWins() {
-  let playerWins = winners.filter((item) => item == "Player").length;
-  let computerWins = winners.filter((item) => item == "Computer").length;
-  let ties = winners.filter((item) => item == "Tie").length;
-  console.log("Results:");
-  console.log("Player Wins:", playerWins);
-  console.log("Computer Wins:", computerWins);
-  console.log("Ties:", ties);
-}
