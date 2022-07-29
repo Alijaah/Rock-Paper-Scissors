@@ -1,6 +1,7 @@
-// Variable Declarations
+// Global Variable Declarations
 
 const choices = ['rock','paper','scissors'];
+const winners = [];
 
 // Computer randomly selects from array and returns a value
 
@@ -67,4 +68,10 @@ function checkWinner(choiceP, choiceC) {
   } else {
     return 'Computer';
   }
+  }
+
+// function that displays the winner
+
+  function logWinner() {
+     
   }
