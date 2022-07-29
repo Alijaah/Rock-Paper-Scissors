@@ -27,10 +27,10 @@ function getPlayerChoice() {
 // Function that validates player input is one of the choices
 
 function validateInput(choice) {
-  if (choices.includes(choice)){
-    return true
+  if (choices.includes(choice)) {
+    return true;
   } else {
-    return false
+    return false;
   }
 }
 
