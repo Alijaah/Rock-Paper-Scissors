@@ -11,14 +11,14 @@ console.log(getComputerChoice)
 
 // Player inputs choice
 
-function playerChoice() {
+function getplayerChoice() {
   let input = prompt("Type Rock, Paper, or Scissors")
   input = input.toLowerCase
 }
 
 // Write a function that plays a single round of Rock Paper Scissors
 
-function playRound (playerSelection,ComputerSelection) {
+function playRound () {
   const playerSelection = getPlayerChoice
   const computerSelection = getComputerChoice
 }
