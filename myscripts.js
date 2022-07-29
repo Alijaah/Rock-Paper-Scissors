@@ -12,8 +12,12 @@ function getComputerChoice () {
 
 function getPlayerChoice() {
   let input = prompt("Type Rock, Paper, or Scissors");
+  while(input == null){
+    input = prompt("Type Rock, Paper, or Scissors");
+  }
   input = input.toLowerCase();
   console.log(input);
+
 }
 
 // Write a function that plays a single round of Rock Paper Scissors
