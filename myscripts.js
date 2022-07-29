@@ -20,6 +20,16 @@ function getPlayerChoice() {
 
 }
 
+// Function that validates player input is one of the choices
+
+function validateInput(choice) {
+  if (choices.includes(choice)){
+    return true
+  } else {
+    return false
+  }
+}
+
 // Write a function that plays a single round of Rock Paper Scissors
 
 function playRound () {
