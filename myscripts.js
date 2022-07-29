@@ -52,9 +52,9 @@ function game() {
   for (let i = 0; i <= 5; i ++) {
     return playRound;
   }
-   logWinner
+  logWins();
 }
-game()  
+game();
 
 // Function that determines the winner
 
@@ -74,6 +74,6 @@ function checkWinner(choiceP, choiceC) {
 
 // function that displays the winner
 
-  function logWinner() {
+  function logWins() {
      console.log(winners);
   }
