@@ -16,7 +16,11 @@ function getPlayerChoice() {
     input = prompt("Type Rock, Paper, or Scissors");
   }
   input = input.toLowerCase();
-  console.log(input);
+  let check = validateInput(input)
+  if(check == true) {
+    console.log(input);
+  }
+  // console.log(input);
 
 }
 
