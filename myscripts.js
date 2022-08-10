@@ -46,12 +46,12 @@ function playRound () {
 
 // Write a function that plays the game
 
-function game() {
-  for (let i = 0; i <= 5; i ++) {
-    playRound(i);
-  }
-}
-game()  
+// function game() {
+//   for (let i = 0; i <= 5; i ++) {
+//     playRound(i);
+//   }
+// }
+// game()  
 
 // Function that determines the winner
 
