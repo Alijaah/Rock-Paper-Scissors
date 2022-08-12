@@ -31,9 +31,9 @@ function startGame() {
 
 function playRound(playerChoice) {
   let wins = checkWins();
-    if (wins >= 5) {
-      return;
-    }
+  if (wins >= 5) {
+    return;
+  }
 
   const computerChoice = computerSelection();
   const winner = checkWinner(playerChoice, computerChoice);
@@ -50,17 +50,38 @@ function displayEnd() {
   let playerWins = winners.filter((item) => item == "Player").length;
 
   if (playerWins == 5) {
-    document.querySelector('winner').textContent = 'You won 5 games! Congratulations!';
+    document.querySelector(".winner").textContent =
+      "You Won 5 Games, Congrats!";
   } else {
-    document.querySelector('winner').textContent = 'Sorry, the computer won 5 times.';
+    document.querySelector(".winner").textContent =
+      "Sorry, the computer won 5 times";
   }
-  document.querySelector('reset').style.display = 'flex';
+  document.querySelector(".reset").style.display = "flex";
 }
 
 function displayRound(playerChoice, computerChoice, winner) {
-  document.querySelector('.playerChoice').textContent = `You chose ${playerChoice.charAt(0).toUpperCase().slice(1)}`;
-  document.querySelector('.computerChoice').textContent = `The Computer chose ${playerChoice.charAt(0).toUpperCase().slice(1)}`;
-  document.querySelector('winner').textContent = `Round Winner: ${winner}`;
+  document.querySelector(".playerChoice").textContent = `You Chose: ${
+    playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)
+  }`;
+  document.querySelector(
+    ".computerChoice"
+  ).textContent = `The Computer Chose: ${
+    computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
+  }`;
+  displayRoundWinner(winner);
+}
+
+// create a function that shows the round winner
+
+function displayRoundWinner(winner) {
+  if (winner == "Player") {
+    document.querySelector(".winner").textContent = "You won the Round!";
+  } else if (winner == "Computer") {
+    document.querySelector(".winner").textContent =
+      "The Computer won the Round";
+  } else {
+    document.querySelector(".winner").textContent = "The Round was a tie";
+  }
 }
 
 // function that tallys wins  
@@ -77,8 +98,17 @@ function tallyWins() {
 
 // function that returns a random computer choice
 
-function computerSelection() {
-  return choices[Math.floor(Math.random() * choices.length)];
+function computerSelect() {
+  //todo - update the dom with the computer selection
+  const choice = choices[Math.floor(Math.random() * choices.length)];
+
+  document.querySelector(`.${choice}`).classList.add("active");
+
+  setTimeout(() => {
+    document.querySelector(`.${choice}`).classList.remove("active");
+  }, 700);
+
+  return choice;
 }
 
 //
