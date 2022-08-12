@@ -1,70 +1,71 @@
-// Variable Declarations
+const choices = ["rock", "paper", "scissors"];
+let winners = [];
 
-const choices = ['rock','paper','scissors'];
+function game() {
+    playRound(i);
+  setWins();  
+}
 
-// Computer randomly selects from array and returns a value
 
-function getComputerChoice () {
-  return choices[Math.floor(Math.random() * choices.length)];
-} 
 
-// Player inputs choice
+function playRound(round) {
+  const computerSelection = computerChoice();
+  const winner = checkWinner(playerSelection, computerSelection);
+  winners.push(winner);
+}
 
-function getPlayerChoice() {
+function playerChoice() {
   let input = prompt("Type Rock, Paper, or Scissors");
-  while(input == null){
+  while (input == null) {
     input = prompt("Type Rock, Paper, or Scissors");
   }
   input = input.toLowerCase();
-  let check = validateInput(input)
-  if(check == true) {
-    console.log(input); 
+  let check = validateInput(input);
+  while (check == false) {
+    input = prompt(
+      "Type Rock, Paper, or Scissors. Spelling needs to be exact, but capitilization doesnt matter"
+    );
+    while (input == null) {
+      input = prompt("Type Rock, Paper, or Scissors");
+    }
+    input = input.toLowerCase();
+    check = validateInput(input);
   }
-  // console.log(input);
   return input;
 }
 
-// Function that validates player input is one of the choices
-
-function validateInput(choice) {
-  if (choices.includes(choice)) {
-    return true;
-  } else {
-    return false;
-  }
+function computerChoice() {
+  return choices[Math.floor(Math.random() * choices.length)];
 }
-
-// Write a function that plays a single round of Rock Paper Scissors
-
-function playRound () {
-  const playerSelection = getPlayerChoice();
-  const computerSelection = getComputerChoice();
-  const winner = checkWinner(playerSelection, computerSelection);
-  console.log (winner);
-  console.log(computerSelection);
-}
-
-// Write a function that plays the game
-
-// function game() {
-//   for (let i = 0; i <= 5; i ++) {
-//     playRound(i);
-//   }
-// }
-// game()  
-
-// Function that determines the winner
 
 function checkWinner(choiceP, choiceC) {
-  if(choiceP === choiceC){
-    return ("Tie!")
-  } else if (choiceP === 'rock' && choiceC === 'scissors') {
-    return 'Player!';
-  } else if (choiceP === 'paper' && choiceC === 'rock') {
-    return 'Player!';
-  } else if (choiceP === 'scissors' && choiceC === 'paper') {
-    return 'Player!';
+  if (choiceP === choiceC) {
+    return "Tie";
+  } else if (
+    (choiceP === "rock" && choiceC == "scissors") ||
+    (choiceP === "paper" && choiceC == "rock") ||
+    (choiceP === "scissors" && choiceC == "paper")
+  ) {
+    return "Player";
   } else {
-    return 'Computer';
+    return "Computer";
   }
-  }
+}
+
+function logWins() {
+  let playerWins = winners.filter((item) => item == "Player").length;
+  let computerWins = winners.filter((item) => item == "Computer").length;
+  let ties = winners.filter((item) => item == "Tie").length;
+  console.log("Results:");
+  console.log("Player Wins:", playerWins);
+  console.log("Computer Wins:", computerWins);
+  console.log("Ties:", ties);
+}
+
+function logRound(playerChoice, computerChoice, winner, round) {
+  console.log("Round:", round);
+  console.log("Player Chose:", playerChoice);
+  console.log("Computer Chose:", computerChoice);
+  console.log(winner, "Won the Round");
+  console.log("-------------------------------");
+}
